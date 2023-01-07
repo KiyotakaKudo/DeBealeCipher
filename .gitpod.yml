@@ -1,0 +1,19 @@
+
+vscode:
+  extensions:
+    - gattytto.phoityne-vscode
+
+tasks:
+  - name: powerline
+    before: |
+      cd
+    init: |
+      echo $PATH
+    command: |
+      sudo apt-get install update
+      sudo apt-get install upgrade
+      sudo apt-get install python3-pip
+      sudo pip3 install powerline-status
+      sudo apt-get install fonts-powerline
+
+  - name: haskell
