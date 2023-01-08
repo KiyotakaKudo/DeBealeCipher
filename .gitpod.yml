@@ -22,3 +22,4 @@ vscode:
   extensions:
     - haskell.haskell
       
+    - ms-azuretools.vscode-docker
