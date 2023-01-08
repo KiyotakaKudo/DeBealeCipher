@@ -13,7 +13,7 @@ tasks:
       sudo apt-get install -y whatever update
       sudo apt-get install -y whatever upgrade
       sudo apt-get install -y whatever python3-pip
-      sudo pip3 install -y whatever powerline-status
+      yes 1 | sudo pip3 install powerline-status
       sudo apt-get install -y whatever fonts-powerline
       echo '# load powerline ' >> .bashrc
       echo 'if [ -f `which powerline-daemon` ]; then' >> .bashrc
@@ -27,7 +27,9 @@ tasks:
 
   - name: haskell
     command: |
-      yes 1 | curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+      curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+      timeout 2
+      echo -ne "\n"
       echo ' export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH" ' >> .bashrc
       echo 'No need to execute the command "stack init"'
       yes 1 | stack build
