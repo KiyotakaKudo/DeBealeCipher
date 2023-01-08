@@ -21,8 +21,14 @@ tasks:
   - name: haskell
     command: |
       curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+      echo -ne '\n'
+      echo -ne '\n'
+      echo -ne 'Y\n'
+      echo -ne '\n'
+      echo -ne 'Y\n'
+      echo -ne '\n'
       export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
-      stack init
+      echo 'No need to execute the command "stack init"'
       stack build
       ghcup install hls
       
