@@ -10,11 +10,10 @@ tasks:
     init: |
       echo $PATH
     command: |
-      sudo apt-get install update
-      sudo apt-get install upgrade
       sudo apt-get install python3-pip
       sudo pip3 install powerline-status
       sudo apt-get install fonts-powerline
+      echo -ne 'Y\n'
       echo '# load powerline ' >> .bashrc
       echo '# load powerline ' >> .bashrc
 
