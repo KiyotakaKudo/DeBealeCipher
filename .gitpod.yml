@@ -15,5 +15,7 @@ tasks:
       sudo apt-get install python3-pip
       sudo pip3 install powerline-status
       sudo apt-get install fonts-powerline
+      echo '# load powerline ' >> .bashrc
+      echo '# load powerline ' >> .bashrc
 
   - name: haskell
