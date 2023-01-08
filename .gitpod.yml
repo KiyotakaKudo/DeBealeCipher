@@ -12,10 +12,18 @@ tasks:
     command: |
       sudo apt-get install python3-pip
       sudo pip3 install powerline-status
+      yes 1 | command
       sudo apt-get install fonts-powerline
       yes 1 | command
       echo '# load powerline ' >> .bashrc
-      echo '# load powerline ' >> .bashrc
+      echo 'if [ -f `which powerline-daemon` ]; then' >> .bashrc
+      echo '  powerline-daemon -q' >> .bashrc
+      echo '  POWERLINE_BASH_CONTINUATION=1' >> .bashrc
+      echo '  POWERLINE_BASH_SELECT=1' >> .bashrc
+      echo 'fi' >> .bashrc
+      echo 'if [ -f /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh ]; then' >> .bashrc
+      echo '  source /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh' >> .bashrc
+      echo 'fi' >> .bashrc
 
   - name: haskell
     command: |
