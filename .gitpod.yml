@@ -27,8 +27,9 @@ tasks:
 
   - name: haskell
     command: |
-      yes 1 | curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-      echo ' export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH" ' >> .bashrc
+      curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+      echo ' export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH" ' >> ~/.bashrc
+      export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
       echo 'No need to execute the command "stack init"'
       yes 1 | stack build
       yes 1 | ghcup install hls
