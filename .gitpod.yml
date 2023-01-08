@@ -13,19 +13,14 @@ tasks:
       sudo apt-get install python3-pip
       sudo pip3 install powerline-status
       sudo apt-get install fonts-powerline
-      echo -ne 'Y\n'
+      yes 1 | command
       echo '# load powerline ' >> .bashrc
       echo '# load powerline ' >> .bashrc
 
   - name: haskell
     command: |
       curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-      echo -ne '\n'
-      echo -ne '\n'
-      echo -ne 'Y\n'
-      echo -ne '\n'
-      echo -ne 'Y\n'
-      echo -ne '\n'
+      yes 1 | command
       export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
       echo 'No need to execute the command "stack init"'
       stack build
