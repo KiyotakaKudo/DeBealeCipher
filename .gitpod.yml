@@ -27,9 +27,7 @@ tasks:
 
   - name: haskell
     command: |
-      curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-      timeout 2
-      echo -ne "\n"
+      yes 1 | curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
       echo ' export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH" ' >> .bashrc
       echo 'No need to execute the command "stack init"'
       yes 1 | stack build
