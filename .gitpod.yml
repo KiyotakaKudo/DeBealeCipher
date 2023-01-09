@@ -3,23 +3,9 @@ image:
 tasks:
   - init:
       stack build
-    command: |
-      sudo apt-get install -y whatever update
-      sudo apt-get install -y whatever upgrade
-      sudo apt-get install -y whatever python3-pip
-      yes 1 | sudo pip3 install powerline-status
-      sudo apt-get install -y whatever fonts-powerline
-      echo '# load powerline ' >> ~/.bashrc
-      echo 'if [ -f `which powerline-daemon` ]; then' >> ~/.bashrc
-      echo '  powerline-daemon -q' >> ~/.bashrc
-      echo '  POWERLINE_BASH_CONTINUATION=1' >> ~/.bashrc
-      echo '  POWERLINE_BASH_SELECT=1' >> ~/.bashrc
-      echo 'fi' >> ~/.bashrc
-      echo 'if [ -f /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh ]; then' >> ~/.bashrc
-      echo '  source /usr/local/lib/python3.8/dist-packages/powerline/bindings/bash/powerline.sh' >> ~/.bashrc
-      echo 'fi' >> ~/.bashrc
 vscode:
   extensions:
     - haskell.haskell
       
     - ms-azuretools.vscode-docker
+    - gattytto.phoityne-vscode
