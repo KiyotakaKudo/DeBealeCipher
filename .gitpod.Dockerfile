@@ -1,3 +1,12 @@
+RUN sudo groupadd docker
+RUN sudo usermod -aG docker $USER
+RUN newgrp docker
+
+FROM mysql:8.0
+#COPY 01_create_db.sql /docker-entrypoint-initdb.d/01_create_db.sql
+#COPY 02_create_data.sql /docker-entrypoint-initdb.d/02_create_data.sql
+ENV MYSQL_ROOT_PASSWORD=root
+
 FROM gitpod/workspace-base
 
 # Install dependencies
@@ -45,4 +54,3 @@ RUN cabal init \
 # similarly, running stack init --force after cabal init, ensures that stack will chose a snapshot compatible with system's ghc
 RUN stack init --force
 
-RUN sudo apt-get install -y mysql-server
