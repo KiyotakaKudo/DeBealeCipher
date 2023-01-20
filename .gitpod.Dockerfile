@@ -44,3 +44,5 @@ RUN cabal init \
 
 # similarly, running stack init --force after cabal init, ensures that stack will chose a snapshot compatible with system's ghc
 RUN stack init --force
+
+RUN sudo apt-get install -y mysql-server

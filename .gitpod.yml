@@ -1,5 +1,6 @@
 image:
   file: .gitpod.Dockerfile
+  mysql: 8.0.23
 tasks:
   - init:
       stack build
