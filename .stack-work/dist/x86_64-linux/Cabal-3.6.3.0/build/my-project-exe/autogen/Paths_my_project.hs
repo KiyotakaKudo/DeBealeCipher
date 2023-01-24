@@ -42,12 +42,12 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
-bindir     = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/f69f3361d15ec4de94bc08ed4d563d2053003177e5a2cc2077e28e6513113394/9.2.5/bin"
-libdir     = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/f69f3361d15ec4de94bc08ed4d563d2053003177e5a2cc2077e28e6513113394/9.2.5/lib/x86_64-linux-ghc-9.2.5/my-project-0.1.0.0-FOf0dpXYzB49FrNVRyzdZq-my-project-exe"
-dynlibdir  = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/f69f3361d15ec4de94bc08ed4d563d2053003177e5a2cc2077e28e6513113394/9.2.5/lib/x86_64-linux-ghc-9.2.5"
-datadir    = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/f69f3361d15ec4de94bc08ed4d563d2053003177e5a2cc2077e28e6513113394/9.2.5/share/x86_64-linux-ghc-9.2.5/my-project-0.1.0.0"
-libexecdir = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/f69f3361d15ec4de94bc08ed4d563d2053003177e5a2cc2077e28e6513113394/9.2.5/libexec/x86_64-linux-ghc-9.2.5/my-project-0.1.0.0"
-sysconfdir = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/f69f3361d15ec4de94bc08ed4d563d2053003177e5a2cc2077e28e6513113394/9.2.5/etc"
+bindir     = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/312ba0ee1deac2b605e3564affa2bdd65c0764440c48e4a095926ef415796bdc/9.2.5/bin"
+libdir     = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/312ba0ee1deac2b605e3564affa2bdd65c0764440c48e4a095926ef415796bdc/9.2.5/lib/x86_64-linux-ghc-9.2.5/my-project-0.1.0.0-FOf0dpXYzB49FrNVRyzdZq-my-project-exe"
+dynlibdir  = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/312ba0ee1deac2b605e3564affa2bdd65c0764440c48e4a095926ef415796bdc/9.2.5/lib/x86_64-linux-ghc-9.2.5"
+datadir    = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/312ba0ee1deac2b605e3564affa2bdd65c0764440c48e4a095926ef415796bdc/9.2.5/share/x86_64-linux-ghc-9.2.5/my-project-0.1.0.0"
+libexecdir = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/312ba0ee1deac2b605e3564affa2bdd65c0764440c48e4a095926ef415796bdc/9.2.5/libexec/x86_64-linux-ghc-9.2.5/my-project-0.1.0.0"
+sysconfdir = "/workspace/DeBealeCipher/.stack-work/install/x86_64-linux/312ba0ee1deac2b605e3564affa2bdd65c0764440c48e4a095926ef415796bdc/9.2.5/etc"
 
 getBinDir     = catchIO (getEnv "my_project_bindir")     (\_ -> return bindir)
 getLibDir     = catchIO (getEnv "my_project_libdir")     (\_ -> return libdir)
