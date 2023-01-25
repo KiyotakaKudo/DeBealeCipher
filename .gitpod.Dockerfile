@@ -1,8 +1,14 @@
+# Creating a Dockerfile for our base container
 FROM mysql:8.0
+# Implementing the scripts for database/table creation and sample data insertion. 
 #COPY 01_create_db.sql /docker-entrypoint-initdb.d/01_create_db.sql
 #COPY 02_create_data.sql /docker-entrypoint-initdb.d/02_create_data.sql
+# Building our customized MySQL docker image and verifying the container state
+ENV MYSQL_ROOT_HOST=%
+ENV MYSQL_DATABASE=DeBealeCipherDB
+ENV MYSQL_USER=DeBealeCipherUser
+ENV MYSQL_PASSWORD=root
 ENV MYSQL_ROOT_PASSWORD=root
-
 FROM gitpod/workspace-base
 
 # Install dependencies
