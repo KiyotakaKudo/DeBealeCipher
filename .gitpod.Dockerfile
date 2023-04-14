@@ -56,3 +56,42 @@ RUN cabal init \
 # similarly, running stack init --force after cabal init, ensures that stack will chose a snapshot compatible with system's ghc
 RUN stack init --force
 
+#install power-line fonts in the terminal
+FROM gitpod/workspace-full
+
+USER root
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y git fontconfig && \
+    apt-get clean && \
+    rm -rf /var/cache/apt/*
+
+# Clone the Powerline font repository
+RUN git clone https://github.com/powerline/fonts.git --depth=1 && \
+    cd fonts && \
+    ./install.sh && \
+    cd .. && \
+    rm -rf fonts
+
+# Set the default font for the terminal
+RUN echo 'if [ -f /usr/share/fonts/powerline/PowerlineSymbols.otf ]; then' >> /home/gitpod/.bashrc && \
+    echo '    POWERLINE_FONT_DIR="/usr/share/fonts/powerline"' >> /home/gitpod/.bashrc && \
+    echo '    POWERLINE_FONT="PowerlineSymbols.otf"' >> /home/gitpod/.bashrc && \
+    echo '    if [ -z "$(fc-list | grep -i powerline)" ]; then' >> /home/gitpod/.bashrc && \
+    echo '        echo "Installing Powerline font..."' >> /home/gitpod/.bashrc && \
+    echo '        fc-cache -vf $POWERLINE_FONT_DIR && \\' >> /home/gitpod/.bashrc && \
+    echo '        echo "Done."' >> /home/gitpod/.bashrc && \
+    echo '    fi' >> /home/gitpod/.bashrc && \
+    echo '    export PS1="\[\033[38;5;245m\]\u@\h \[\033[38;5;129m\]\w\[\033[0m\]\n$ "' >> /home/gitpod/.bashrc && \
+    echo '    export TERM="xterm-256color"' >> /home/gitpod/.bashrc && \
+    echo '    export LANG="en_US.UTF-8"' >> /home/gitpod/.bashrc && \
+    echo '    export LC_ALL="en_US.UTF-8"' >> /home/gitpod/.bashrc && \
+    echo '    export POWERLINE_CONFIG_COMMAND="powerline-config"' >> /home/gitpod/.bashrc && \
+    echo '    source /usr/share/powerline/bindings/bash/powerline.sh' >> /home/gitpod/.bashrc && \
+    echo 'fi' >> /home/gitpod/.bashrc
+
+USER gitpod
+
+CMD ["/bin/bash", "-c", "source /home/gitpod/.bashrc && /bin/bash"]
+
